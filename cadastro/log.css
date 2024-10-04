@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url(../imagens/fundocard.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-login{
+    width: 100vw;
+    height: 100vh;
+    background: #201b2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.left-login > h1{
+    color: #ffb300;
+}
+
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    width:70%px;
+    background: #2f2841;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: aliceblue;
+    border-radius: 10px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper h1{
+    font-size: 32px;
+    text-align: center;
+    color: #ffb300;
+    font-weight: 800;
+    margin: 0;
+}
+.left-image{
+    width: 35vw;
+}
+.textfield{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 6px;
+}
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    
+}
+
+.textfield > input{
+    width: 100%;
+    height: 100%;
+    background: #514869;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 14pt;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    color: #f0ffffde;
+    box-sizing: border-box;
+}
+.textfield > label{
+ color: #f0ffffde;
+ margin-bottom: 10px;
+}
+
+
+.text-field > input::placeholder{
+    color: white;
+}
+.text-field i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%);
+    font-size: 20px;
+    color: #fff;
+}
+
+.wrapper .lembrar-esqueceu{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+    padding-top: 20px;
+}
+
+.lembrar-esqueceu label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.lembrar-esqueceu a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.lembrar-esqueceu a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #ffb300;;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #2b134b;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.wrapper .registrar-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.registrar-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.registrar-link p a:hover {
+    text-decoration: underline;
+}
+
+@media only screnn and (max-widht:  600px){
+
+    .main-login {
+       flex-direction: column;
+    }
+    .left-login > h1 {
+        display: none;
+    }
+
+    .left-login{
+        width: 100%;
+        height: auto;
+    }
+    .right-login{
+        width: 100%;
+        height: auto;
+    }
+    
+    .left-image{
+        width: 50vh;
+    }
+    
+}
