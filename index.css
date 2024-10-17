@@ -1,0 +1,111 @@
+/* estilo geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(./imagens/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Estilo do container */
+.interface {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 15px;
+}
+
+/* Estilo da imagem */
+.img-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+/* Estilo do texto do topo */
+.txt-topo-site {
+    text-align: center;
+}
+
+.inicio h1 {
+    color: white;
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Estilo do Card */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #ddd;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+/* Estilo dos botões */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background: linear-gradient(45deg, #ffb300, #d39400);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg,  #ffb300, #d39401);
+    transform: scale(1.05);
+}

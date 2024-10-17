@@ -40,6 +40,10 @@ if(isset($_POST['submit']))
         </div>
     
         <div class="right-login">
+              <!-- Botão de Voltar -->
+        <a href="../index.php" class="btn-voltar">
+            <i class='bx bx-left-arrow-alt'></i> Voltar
+        </a>
             <div class="wrapper">
                 <h1>CADASTRO</h1>
                 <form action="./cadastro.php" method="POST" onsubmit="return validarFormulario()">

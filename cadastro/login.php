@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="log.css">
+    <link rel="stylesheet" href="logi.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>login</title>
 </head>
 <body>
     <div class="main-login">
+          <!-- Botão de Voltar -->
+          <a href="../index.php" class="btn-voltar">
+            <i class='bx bx-left-arrow-alt'></i> Voltar
+        </a>
     <div class="left-login">
         <h1>FAÇA PARTE DO NOSSO TIME</h1>
         <img src="../imagens/animate-log.svg" class="left-image" alt="barber">
