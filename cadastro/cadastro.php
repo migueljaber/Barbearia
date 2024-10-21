@@ -1,20 +1,43 @@
 <?php
 
-if(isset($_POST['submit']))
-{
-   
-    include_once('./conexao.php');
+if (isset($_POST['submit'])) {
+    if (!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email']) && 
+        !empty($_POST['numero']) && !empty($_POST['senha']) && !empty($_POST['confirmar_senha'])) {
 
-    $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $email = $_POST['email'];
-    $numero = $_POST['numero'];
-    $senha = $_POST['senha'];
+        if ($_POST['senha'] !== $_POST['confirmar_senha']) {
+            echo "<script>alert('As senhas não coincidem. Por favor, tente novamente.');</script>";
+        } else {
+            include_once('./conexao.php');
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, cpf, email, numero, senha) 
-    VALUES ('$nome', '$cpf', '$email', '$numero', '$senha')");
+            $nome = $_POST['nome'];
+            $cpf = $_POST['cpf'];
+            $email = $_POST['email'];
+            $numero = $_POST['numero'];
+            $senha = $_POST['senha'];
 
-    header('Location: login.php');
+            // Preparar a consulta para verificar a existência de CPF, email ou número
+            $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE cpf = ? OR email = ? OR numero = ?");
+            $stmt->bind_param('sss', $cpf, $email, $numero);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                echo "<script>alert('Já existe um usuário com esse CPF, email ou número de telefone. Por favor, tente novamente.');</script>";
+            } else {
+                // Preparar a inserção
+                $stmt_insert = $conexao->prepare("INSERT INTO usuarios(nome, cpf, email, numero, senha) VALUES (?, ?, ?, ?, ?)");
+                $stmt_insert->bind_param('sssss', $nome, $cpf, $email, $numero, $senha);
+                
+                if ($stmt_insert->execute()) {
+                    header('Location: login.php');
+                } else {
+                    echo "<script>alert('Erro ao cadastrar. Por favor, tente novamente.');</script>";
+                }
+            }
+        }
+    } else {
+        echo "<script>alert('Por favor, preencha todos os campos.');</script>";
+    }
 }
 ?>
 

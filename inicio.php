@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <script src="javascript.js" defer ></script>
-        <script src="https://unpkg.com/scrollreveal"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="javascript.js" defer ></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="style.css">
    
     <title>Barbearia</title>
@@ -19,7 +18,7 @@
     <body>
     <nav class="navbar">
     <div class="logo">
-        <img src="../Fernandes/imagens/logo.png" alt="Logo">
+        <img src="imagens/logo.png" alt="Logo">
     </div>
     <ul class="nav-links" id="nav-links">
         <li><a href="#inicio">Home</a></li>
@@ -32,13 +31,8 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
-    <a href="cadastro/login.php" class="login-button"><i class="bi bi-person"></i></a>
+    <a href="sair.php" class="btn btn-danger me-5">Sair</a>
 </nav>
-
-    
-        <script src="script.js"></script>
-   
-    
 
         <main>
             <section class="inicio" id="inicio">
@@ -50,7 +44,7 @@
                             </div>
                             <p>Onde tradição e estilo se encontram no coração de Bangu</p>
                         </div>
-                        <img src="../Fernandes/imagens/animate-inicio.svg" class="image" alt="animate">
+                        <img src="imagens/animate-inicio.svg" class="image" alt="animate">
                     </div>
                 </div>
             </section>

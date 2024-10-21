@@ -28,54 +28,59 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar usuário</title>
+    <link rel="stylesheet" href="cads.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./cadastro/cadastrar.css">
+    <link rel="stylesheet" href="cadastro/cads.css">
+
+    <title>Cadastro</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="./cadastro/cadastro.js"></script>
+    <script src="cadastro/cadastro.js"></script>
 </head>
 <body>
-    <a href="select.php">Voltar</a>
     <div class="main-login">
         <div class="left-login">
-            <img src="./cadastro/animatecad.svg" class="left-image" alt="barber">
+            <h1>FAÇA PARTE DA FAMILIA FERNANDES</h1>
+            <img src="imagens/animate-cad.svg" class="left-image" alt="barber">
         </div>
     
         <div class="right-login">
+              <!-- Botão de Voltar -->
+        <a href="select.php" class="btn-voltar">
+            <i class='bx bx-left-arrow-alt'></i> Voltar
+        </a>
             <div class="wrapper">
-                <h1>Editar usuário</h1>
-                <form action="./saveEdit.php" method="POST">
+                <h1>CADASTRO</h1>
+                <form action="./saveEdit.php" method="POST" onsubmit="return validarFormulario()">
                 <div class="input-columns">
                     <div class="col">
                         <div class="textfield">
                             <label for="usuario">Nome</label>
-                            <input type="text" id="nome" name="nome" value=<?php echo $nome;?> required>
+                            <input type="text" id="nome" name="nome" value="<?php echo $nome;?>" required>
                         </div>
                     </div>
                     <div class="col">
                         <div class="textfield">
                             <label for="cpf">CPF</label>
-                            <input type="text" id="cpf" name="cpf" value=<?php echo $cpf;?> required>
+                            <input type="text" id="cpf" name="cpf" value="<?php echo $cpf;?>" required>
                         </div>
                     </div>
                 </div>
                 <div class="input-columns">
                     <div class="col">
                         <div class="textfield">
-                            <label for="numero">Número</label>
-                            <input type="text" id="numero" name="numero" value=<?php echo $numero;?> required>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" value="<?php echo $email;?>" required>
                         </div>
                     </div>
                     <div class="col">
                         <div class="textfield">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" value=<?php echo $email;?> required>
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" name="numero" value="<?php echo $numero;?>" required>
                         </div>
                     </div>
                 </div>
@@ -83,12 +88,15 @@
                     <div class="col">
                         <div class="textfield">
                             <label for="senha">Senha</label>
-                            <input type="text" id="senha" name="senha" value=<?php echo $senha;?> required>
+                            <input type="password" id="senha" name="senha" value="<?php echo $senha;?>" required>
                         </div>
                     </div>
-                    <div class="col">
-                    <input type="hidden" name="id" value=<?php echo $id;?>>
-                    <button type="submit" name="update" id="submit" class="btn">Editar</button>
                 </div>
+                <input type="hidden" name="id" value=<?php echo $id;?>>
+                <button type="submit" name="update" id="submit" class="btn">Editar</button>
+                </form>
+            </div>
+        </div> 
+    </div>
 </body>
 </html>
