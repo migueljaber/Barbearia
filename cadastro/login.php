@@ -33,7 +33,7 @@
             </div>
     
             <div class="lembrar-esqueceu">
-                <label><input type="checkbox"> Lembrar senha</label>
+                <label></label>
                 
             </div>
     

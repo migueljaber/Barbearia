@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="lembrar-esqueceu">
-                    <label><input type="checkbox"> Lembrar senha</label>
+                    <label></label>
                 </div>
 
                 <button type="submit" name="submit" id="submit" class="btn">Cadastrar</button>

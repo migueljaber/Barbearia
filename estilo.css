@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: url(imagens/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Navbar fixa no topo da tela */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Aumenta o espaçamento */
+    background-color: rgba(73, 73, 73, 0.8); /* Fundo semi-transparente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Transição suave ao rolar */
+}
+
+.navbar:hover {
+    background-color: rgba(73, 73, 73, 1); /* Escurece ao passar o mouse */
+}
+
+/* Logo */
+.logo img {
+    height: 80px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Links da navbar */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Aumenta o espaçamento entre os links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f3f3f3;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 8px; /* Suaviza as bordas dos links */
+    position: relative; /* Para o efeito de sublinhado */
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    height: 3px;
+    width: 0;
+    background-color: #ffb300;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Ícone de login */
+.login-button {
+    color: #f3f3f3;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.login-button:hover {
+    color: #ffb300; /* Muda a cor do ícone ao passar o mouse */
+}
+
+/* Menu responsivo */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        background-color: #2c2c2c;
+        flex-direction: column;
+        width: 250px;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .responsivo {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .responsivo .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #f3f3f3; /* Cor das barras */
+        transition: all 0.3s ease;
+    }
+}
+
+
+/* Seção de início */
+.inicio {
+    padding: 100px 4%;
+    text-align: center;
+}
+
+.inicio .texto h1 {
+    font-size: 48px;
+    color: #ffb300;
+}
+
+.inicio .texto p {
+    color: #ffffff;
+    font-size: 20px;
+}
+.inicio img{
+     height: 300px;
+     right: 350px;
+}
+/* Seção sobre */
+.sobre {
+    padding: 40px 4%;
+    background-color: transparent;
+    border-radius: 10px;
+    -webkit-box-shadow: 17px 7px 25px -4px rgba(143,139,143,0.91);
+-moz-box-shadow: 17px 7px 25px -4px rgba(143,139,143,0.91);
+box-shadow: 17px 7px 25px -4px rgba(143,139,143,0.91);
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 200px; /* Adiciona espaço entre a seção equipe e o footer */
+
+}
+
+.sobre .tit-sobre h1 {
+    font-size: 32px;
+    color: #ffb300;
+}
+
+.sobre p {
+    color: white;
+    font-size: 22px;
+    text-align: justify;
+}
+
+/* Cards de serviços */
+
+
+    .equipe {
+        padding: 150px;
+        margin-bottom: 200px; /* Adiciona espaço entre a seção equipe e o footer */
+        background-color: #f8f9fa;
+    }
+    
+
+
+.equipe .titulo{
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+}
+.equipe .titulo span{
+    color: #ffb300;
+}
+.btn-agendar {
+    display: block; /* Para que o botão ocupe o espaço total do contêiner */
+    width: 200px; /* Largura fixa para um botão mais bonito */
+    background-color: #00c4cc; /* Cor de fundo futurista */
+    color: #fff; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
+    margin: 40px auto; /* Margem superior e inferior de 40px e centraliza horizontalmente */
+    font-size: 20px; /* Tamanho da fonte */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 30px; /* Bordas arredondadas para um visual moderno */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove sublinhado do link */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transições suaves */
+    box-shadow: 0 4px 15px rgba(0, 196, 204, 0.4); /* Sombra para um efeito de elevação */
+    margin-top: 85px;
+}
+
+.btn-agendar a {
+    color: #fff; /* Cor do texto do link */
+    display: block; /* Faz o link ocupar todo o espaço do botão */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+/* Estilização de hover */
+.btn-agendar:hover {
+    background-color: #009f9f; /* Cor ao passar o mouse */
+    transform: translateY(-3px); /* Levanta o botão levemente */
+    box-shadow: 0 6px 20px rgba(0, 196, 204, 0.6); /* Aumenta a sombra ao passar o mouse */
+}
+
+.btn-agendar:active {
+    transform: translateY(0); /* Remove a elevação ao clicar */
+    box-shadow: 0 4px 15px rgba(0, 196, 204, 0.4); /* Volta à sombra original ao clicar */
+}
+
+.card-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as cartas quebrem para a próxima linha se necessário */
+    justify-content: center; /* Centraliza as cartas */
+}
+
+.card {
+    flex: 0 0 30%; /* Define o tamanho inicial das cartas para que elas não cresçam ou encolham */
+    margin: 20px; /* Adiciona espaçamento entre as cartas */
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+    text-align: center; /* Centraliza o texto */
+}
+
+.card img {
+    width: 100%; /* Imagem ocupa toda a largura */
+    border-bottom: 2px solid #ffb300; /* Borda inferior */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Eleva a carta ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+
+    footer{
+        background-color: #ffb300;
+        padding: 50px 0;
+    }
+    .container-footer{
+        max-width: 1400px;
+        padding: 0 4%;
+        margin: auto;
+    }
+    footer p{
+        text-align: center;
+    }
+     .equipe {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 40px;
+    }
+    .btn-agendar {
+        display: block; /* Para que o botão ocupe o espaço total do contêiner */
+        width: 200px; /* Largura fixa para um botão mais bonito */
+        background-color: #ffbd24; /* Cor de fundo futurista */
+        color: #fff; /* Cor do texto */
+        padding-top: 30px;
+        padding: 15px; /* Espaçamento interno */
+        margin: 0 auto; /* Centraliza o botão horizontalmente */
+        font-size: 20px; /* Tamanho da fonte */
+        border: none; /* Remove a borda padrão do botão */
+        border-radius: 30px; /* Bordas arredondadas para um visual moderno */
+        text-align: center; /* Centraliza o texto */
+        text-decoration: none; /* Remove sublinhado do link */
+        cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Transições suaves */
+        box-shadow: 0 4px 15px #ffb60b(0, 196, 204, 0.4); /* Sombra para um efeito de elevação */
+    }
+    
+    .btn-agendar a {
+        color: #fff; /* Cor do texto do link */
+        display: block; /* Faz o link ocupar todo o espaço do botão */
+        text-decoration: none; /* Remove sublinhado */
+    }
+    
+    .btn-agendar:hover {
+        background-color: #ffb300; /* Cor ao passar o mouse */
+        transform: translateY(-3px); /* Levanta o botão levemente */
+        box-shadow: 0 6px 20px #e7a200(0, 196, 204, 0.6); /* Aumenta a sombra ao passar o mouse */
+    }
+    
+    .btn-agendar:active {
+        transform: translateY(0); /* Remove a elevação ao clicar */
+        box-shadow: 0 4px 15px #ffb60b(0, 196, 204, 0.4); /* Volta à sombra original ao clicar */
+    }
+    footer {
+        background-color: #df9c00; /* Cor de fundo suave */
+        color: #ffffff; /* Cor do texto */
+        padding: 20px 0; /* Espaçamento vertical */
+        text-align: center; /* Centraliza o texto */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil na parte superior */
+        position: relative; /* Para garantir que a sombra funcione corretamente */
+    }
+    
+    .container {
+        max-width: 1200px; /* Limita a largura máxima do footer */
+        margin: 0 auto; /* Centraliza o conteúdo */
+        padding: 0 20px; /* Adiciona espaçamento lateral */
+    }
+    
+    footer p {
+        margin: 0; /* Remove margens padrão */
+        font-size: 14px; /* Tamanho da fonte */
+        font-family: 'Arial', sans-serif; /* Fonte moderna */
+    }
+    
+    footer a {
+        color: #00c896; /* Cor dos links */
+        text-decoration: none; /* Remove sublinhado */
+        transition: color 0.3s; /* Transição suave ao passar o mouse */
+    }
+    
+    footer a:hover {
+        color: #00b287; /* Cor ao passar o mouse */
+    }

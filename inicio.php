@@ -1,3 +1,9 @@
+<?php
+    session_start();
+   
+   
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="javascript.js" defer ></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
    
     <title>Barbearia</title>
 </head>
@@ -31,6 +37,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
+    <a href="editaruser.php?id=<?php echo $_SESSION['id']; ?>" class="btn btn-warning">Usuário</a>
     <a href="sair.php" class="btn btn-danger me-5">Sair</a>
 </nav>
 
@@ -66,21 +73,21 @@
             <h2 class="titulo">NOSSOS<span> SERVIÇOS</span></h2>
             <div class="card-group">
                 <div class="card">
-                    <img src="./imagens/maquina.jfif" class="card-img-top" alt="Andrei Sousa">
+                    <img src="./imagens/maquina.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Máquina</h3>
                         <p class="card-text">Na Barbearia Fernandes, oferecemos cortes rápidos e modernos na máquina por apenas R$22, garantindo praticidade e um acabamento impecável.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./imagens/tesousa.jfif" class="card-img-top" alt="Carlos André">
+                    <img src="./imagens/tesousa.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Corte na tesoura</h3>
                         <p class="card-text">Na Barbearia Fernandes, realizamos cortes detalhados na tesoura por R$30, proporcionando um acabamento personalizado e refinado para cada cliente.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./imagens/barba.jfif" class="card-img-top" alt="Luís Gabriel">
+                    <img src="./imagens/barba.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Barba</h3>
                         <p class="card-text">Na Barbearia Fernandes, oferecemos um serviço de barba impecável por apenas R$20, garantindo contornos perfeitos e um acabamento cuidadoso.</p>
@@ -90,33 +97,38 @@
 
             <div class="card-group">
                 <div class="card">
-                    <img src="./imagens/navalhado.jfif" class="card-img-top" alt="Miguel Jaber">
+                    <img src="./imagens/navalhado.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Corte navalhado</h3>
                         <p class="card-text">Na Barbearia Fernandes, o corte navalhado é realizado com precisão e estilo por R$30, proporcionando um acabamento perfeito e um visual sofisticado.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./imagens/completo.jfif" class="card-img-top" alt="Lucas Laybenith">
+                    <img src="./imagens/completo.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Barba e cabelo</h3>
                         <p class="card-text">Na Barbearia Fernandes, oferecemos o pacote completo de barba e cabelo por R$50, unindo qualidade e estilo em uma única experiência de cuidado pessoal.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="./imagens/platinado.jfif" class="card-img-top" alt="David Alves">
+                    <img src="./imagens/platinado.jfif" class="card-img-top">
                     <div class="card-body">
                         <h3 class="card-title">Platinado</h3>
                         <p class="card-text">Na Barbearia Fernandes, o serviço de platinado custa R$90, transformando seu visual com um descolorido impecável e moderno.</p>
                     </div>
                 </div>
             </div>
+            </br>
+        <button class="btn-agendar">
+            <a href="agendamento.php">Agendar serviço</a>
+        </button>
         </section>
     </main>
     <footer>
-        <div class="fot">
-            <p>&copy; 2024 Barbearia Fernandes. todos os direitos reservados</p>
+    <div class="container">
+    <p>&copy; 2024 Advance. Todos os direitos reservados.</p>
         </div>
     </footer>
-
+</body>
+</html>
    
