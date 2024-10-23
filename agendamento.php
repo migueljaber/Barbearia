@@ -24,17 +24,19 @@ if (!isset($_SESSION['id'])) {
         <label for="barbeiro">Escolha o Barbeiro:</label>
         <br>
         <select id="barbeiro" name="barbeiro" required>
+            <option value="semselecao"></option>
             <option value="André">André</option>
             <option value="Jean">Jean</option>
             <option value="Gabriel">Gabriel</option>
             <option value="Kauan">Kauan</option>
-            <option value="xxxx">xxxx</option>
+            <option value="xxxx">esqueceunome</option>
         </select>
         <br><br>
 
         <label for="servico">Escolha o serviço:</label>
         <br>
         <select id="servico" name="servico" required>
+            <option value="semselecao"></option>
             <option value="corte">Máquina</option>
             <option value="tesoura">Corte na tesoura</option>
             <option value="barba">Barba</option>
@@ -52,6 +54,7 @@ if (!isset($_SESSION['id'])) {
         <label for="horario">Escolha o horário:</label>
         <br>
         <select id="horario" name="horario" required>
+        <option value="semselecao"></option>
             <option value="09:00">09:00</option>
             <option value="10:00">10:00</option>
             <option value="11:00">11:00</option>
@@ -63,7 +66,7 @@ if (!isset($_SESSION['id'])) {
         </select>
         <br><br>
 
-        <input type="submit" value="Agendar">
+        <button type="submit" value="Agendar">Agendar</button>
     </form>
     </div>
 </body>
