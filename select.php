@@ -9,16 +9,19 @@
         header('Location: cadastro/login.php');
     }
 
-    if(!empty($_GET['search']))
+    if(!empty($_GET['search_user']))
     {
-        $data = $_GET['search'];
+        $data = $_GET['search_user'];
         $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or nivel LIKE '%$data%' or numero LIKE '%$data%' ORDER BY id ASC";
     }
     else
     {
         $sql = "SELECT * FROM usuarios ORDER BY id ASC";
     }
+    $sqlagenda = "SELECT a.id, u.nome, a.barbeiro, a.servico, a.dia, a.horario FROM agendamentos a JOIN usuarios u ON a.usuario_id = u.id ORDER BY a.id ASC";
+
     $result = $conexao->query($sql);
+    $resultAgenda = $conexao->query($sqlagenda);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -68,8 +71,11 @@
         echo "<h1>Bem-vindo, Administrador!</h1>";
     ?>
     <br>
+    <?php
+        echo "<h1>Lista de clientes!</h1>";
+    ?>
     <div class="box-search">
-        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar_users">
         <button onclick="searchData()" class="btn btn-warning" style="background: linear-gradient(45deg, #ffb300, #d39400);">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -119,20 +125,80 @@
             </tbody>
         </table>
     </div>
+    <br>
+    <?php
+        echo "<h1>Agendamentos!</h1>";
+    ?>
+    <div class="box-search">
+        <!-- <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar_agendamento">
+        <button onclick="searchData()" class="btn btn-warning" style="background: linear-gradient(45deg, #ffb300, #d39400);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </button> -->
+    </div>
+    <div class="m-5">
+        <table class="table text-white table-bg">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Barbeiro</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    while($agenda_data = mysqli_fetch_assoc($resultAgenda)) {
+                        echo "<tr>";
+                        echo "<td>".$agenda_data['id']."</td>";
+                        echo "<td>".$agenda_data['nome']."</td>";
+                        echo "<td>".$agenda_data['barbeiro']."</td>";
+                        echo "<td>".$agenda_data['servico']."</td>";
+                        echo "<td>".$agenda_data['dia']."</td>";
+                        echo "<td>".$agenda_data['horario']."</td>";
+                        echo "<td>
+                            <a class='btn btn-sm btn-danger' href='delete.php?agenda_id=$agenda_data[id]' title='Deletar'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                                    <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z'/>
+                                </svg>
+                            </a>
+                            </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+            </tbody>
+        </table>
+        <a href=""> Nova interface em breve </a> 
+    </div>
 </body>
 <script>
-    var search = document.getElementById('pesquisar');
+    var searchUsers = document.getElementById('pesquisar_users');
+    var searchAgenda = document.getElementById('pesquisar_agendamentos');
 
-    search.addEventListener("keydown", function(event) {
+    searchUsers.addEventListener("keydown", function(event) {
         if (event.key === "Enter") 
         {
-            searchData();
+            searchUsersData();
         }
     });
 
-    function searchData()
+    searchAgenda.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") 
+        {
+            searchAgendaData();
+        }
+    });
+
+    function searchUsersData()
     {
-        window.location = 'select.php?search='+search.value;
+        window.location = 'select.php?search_user='+search.value;
+    }
+    function searchAgendaData()
+    {
+        window.location = 'select.php?search_agenda='+search.value;
     }
 </script>
 </html>
