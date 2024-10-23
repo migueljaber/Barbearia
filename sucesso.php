@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erro</title>
+    <title>Confirmado!</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -25,15 +25,12 @@
             font-size: 35px;
             color: yellow;
         }
-        p {
-            font-size: 18px;
-            padding-bottom: 10px;
-        }
+        
         a {
             color: black;
             text-decoration: none;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 25px;
         }
         a:hover {
             text-decoration: none;
@@ -50,14 +47,14 @@
             background-color: #f7a21b;
             cursor: pointer;
         }
+    
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Erro de Acesso</h1>
-        <p>Houve um problema ao acessar o sistema.<br>
-        Por favor, verifique suas credenciais ou tente novamente mais tarde.</p>
-        <button><a href="cadastro/login.php">Voltar para a página de login</a></button>
+        <h1>Agendamento confirmado!</h1>
+        <h2>Agradecemos a preferência!</h2><br><br>
+        <button><a href="inicio.php">Voltar para a página principal</a></button>
     </div>
 </body>
 </html>

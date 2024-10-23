@@ -39,6 +39,7 @@
     </div>
     <a href="editaruser.php?id=<?php echo $_SESSION['id']; ?>" class="btn btn-warning">Usuário</a>
     <a href="sair.php" class="btn btn-danger me-5">Sair</a>
+    <button class='btn-pedido'><a href="pedidos.php">Meus pedidos</a></button>
 </nav>
 
         <main>

@@ -327,3 +327,15 @@ box-shadow: 17px 7px 25px -4px rgba(143,139,143,0.91);
     footer a:hover {
         color: #00b287; /* Cor ao passar o mouse */
     }
+
+.btn-pedido{
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    
+}
+
+.btn-pedido.ahref{
+    text-decoration: none;
+}

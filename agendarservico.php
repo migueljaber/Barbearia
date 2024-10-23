@@ -25,6 +25,7 @@ $sql = "INSERT INTO agendamentos (usuario_id, barbeiro, dia, servico, horario) V
 
 if ($conexao->query($sql) === TRUE) {
     echo "Agendamento realizado com sucesso!";
+    header('Location: sucesso.php');
 } else {
     echo "Erro ao agendar: " . $conexao->error;
 }
