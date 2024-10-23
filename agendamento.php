@@ -13,13 +13,16 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agendamento.css">
     <title>Agendar Serviço</title>
 </head>
 <body>
+    <div class="agendarservico">
     <h1>Agendar Serviço</h1>
 
     <form action="agendarservico.php" method="POST">
         <label for="barbeiro">Escolha o Barbeiro:</label>
+        <br>
         <select id="barbeiro" name="barbeiro" required>
             <option value="André">André</option>
             <option value="Jean">Jean</option>
@@ -30,6 +33,7 @@ if (!isset($_SESSION['id'])) {
         <br><br>
 
         <label for="servico">Escolha o serviço:</label>
+        <br>
         <select id="servico" name="servico" required>
             <option value="corte">Máquina</option>
             <option value="tesoura">Corte na tesoura</option>
@@ -40,11 +44,13 @@ if (!isset($_SESSION['id'])) {
         </select>
         <br><br>
 
-        <label for="data">Data:</label>
-        <input type="date" name="data" id="data" required>
+        <label for="dia">Data:</label>
+        <br>
+        <input type="date" name="dia" id="dia" required>
         <br><br>
 
         <label for="horario">Escolha o horário:</label>
+        <br>
         <select id="horario" name="horario" required>
             <option value="09:00">09:00</option>
             <option value="10:00">10:00</option>
@@ -59,5 +65,6 @@ if (!isset($_SESSION['id'])) {
 
         <input type="submit" value="Agendar">
     </form>
+    </div>
 </body>
 </html>

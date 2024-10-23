@@ -9,7 +9,9 @@ if (!isset($_SESSION['id'])) {
 }
 
 // Obtém os dados do formulário
+$barbeiro = $_POST['barbeiro'];
 $servico = $_POST['servico'];
+$dia = $_POST['dia'];
 $horario = $_POST['horario'];
 $usuario_id = $_SESSION['id'];  // ID do usuário logado
 
@@ -19,7 +21,7 @@ if ($conexao->connect_error) {
 }
 
 // Insere o agendamento no banco de dados, associando com o ID do usuário logado
-$sql = "INSERT INTO agendamentos (usuario_id, servico, horario) VALUES ('$usuario_id', '$servico', '$horario')";
+$sql = "INSERT INTO agendamentos (usuario_id, barbeiro, dia, servico, horario) VALUES ('$usuario_id', '$barbeiro', '$dia', '$servico', '$horario')";
 
 if ($conexao->query($sql) === TRUE) {
     echo "Agendamento realizado com sucesso!";

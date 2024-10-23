@@ -1,0 +1,25 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('imagens/fundocard.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.agendarservico{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    border-radius: 15px;
+    position: absolute;
+    padding: 20px;
+}
+
+select{
+    padding: 10px;
+    border-radius: 5px;
+}

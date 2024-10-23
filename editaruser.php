@@ -2,24 +2,21 @@
     session_start();
     include_once('conexao.php');
 
-    // Verifica se o parâmetro 'id' foi passado na URL
     if (!empty($_GET['id'])) {
-        $id = $_GET['id'];  // Captura o valor de 'id' da URL
+        $id = $_GET['id'];  
 
-        // Consulta SQL para selecionar o usuário com o ID fornecido
         $sqlSelect = "SELECT * FROM usuarios WHERE id=$id";
         $result = $conexao->query($sqlSelect);
 
-        // Verifica se a consulta retornou algum usuário
         if ($result->num_rows > 0) {
-            // Recupera os dados do usuário da consulta
+            
             while ($user_data = mysqli_fetch_assoc($result)) {
                 $nome = $user_data['nome'];
                 $email = $user_data['email'];
                 $numero = $user_data['numero'];
             }
         } else {
-            // Se o ID não for encontrado no banco de dados, redireciona para a página inicial
+
             header('Location: inicio.php');
         }
     } else {
