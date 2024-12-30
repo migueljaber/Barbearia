@@ -19,6 +19,7 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         header('Location: erro.php');
+        exit();
     } else {
         // Se encontrou o usuário, recupera os dados
         $row = $result->fetch_assoc();
@@ -35,13 +36,16 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']
 
         // Verifica o nível do usuário e redireciona para a página correspondente
         if ($nivel == "adm") {
-            header('Location: select.php'); // Redireciona para página de admin
+            header('Location: select.php');
+            exit(); // Redireciona para página de admin
         } elseif ($nivel == "cliente") {
             header('Location: inicio.php'); // Redireciona clientes para a página inicial
+            exit();
         }
     }
 } else {
     // Se não submeteu o formulário ou campos estão vazios, redireciona para erro
     header('Location: erro.php');
+    exit();
 }
 ?>

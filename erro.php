@@ -36,7 +36,7 @@
             font-size: 20px;
         }
         a:hover {
-            text-decoration: none;
+            text-decoration: underline;
         }
         button{
             padding: 15px;

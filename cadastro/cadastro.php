@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
                 </form>
 
                 <div class="registrar-link">
-                    <p>Já tem conta? <a href="../cadastro/login.html">Entrar</a></p>
+                    <p>Já tem conta? <a href="../cadastro/login.php">Entrar</a></p>
                 </div>
             </div>
         </div> 

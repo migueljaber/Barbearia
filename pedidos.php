@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Verifique se o usuário está logado corretamente e se a sessão contém o 'id' e 'email'
+if (!isset($_SESSION['id']) || !isset($_SESSION['email'])) {
+    // Se não estiver logado, redirecionar para a página de login
+    header('Location: cadastro/login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +22,32 @@
             padding: 20px;
             text-align: center;
         }
+        .btn-voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            background: #ffb300;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-voltar:hover {
+            background: #d59500;
+            transform: translateY(-2px);
+        }
+
+        .btn-voltar i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
         .appointments {
             max-width: 600px;
             margin: 20px auto;
@@ -20,16 +57,16 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .appointments h2 {
+        .appointments h1 {
             color: #333;
         }
         .appointment-item {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             padding: 10px;
             background-color: #f9f9f9;
             border-radius: 3px;
             text-align: left;
-            position: relative; /* Para posicionamento do botão */
+            position: relative;
         }
         .delete-button {
             position: absolute;
@@ -42,13 +79,21 @@
             border-radius: 3px;
             cursor: pointer;
         }
+        .total-cost {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
+        <a href="./inicio.php" class="btn-voltar">
+            <i class='bx bx-left-arrow-alt'></i> Voltar
+        </a>
     <div class="appointments">
         <h1>Meus Agendamentos</h1>
         <?php
-        session_start();
+       
         include("conexao.php");
 
         // Verifica se o cliente está logado
@@ -73,8 +118,11 @@
             }
         }
 
-        // Realiza a consulta dos agendamentos do usuário
-        $sql = "SELECT * FROM agendamentos WHERE usuario_id = '$usuario_id'";
+        // Realiza a consulta dos agendamentos do usuário que NÃO estão com status "Concluído"
+        $sql = "SELECT a.id, a.barbeiro, a.dia, a.horario, s.nome AS servico_nome, s.preco AS servico_preco
+                FROM agendamentos a
+                JOIN servicos s ON a.servico_id = s.id
+                WHERE a.usuario_id = '$usuario_id' AND a.status != 'Concluído'";
         $result = $conexao->query($sql);
 
         // Verifica se há agendamentos
@@ -84,14 +132,19 @@
             while ($row = $result->fetch_assoc()) {
                 $agendamento_id = $row['id'];
                 $barbeiro = $row['barbeiro'];
-                $servico = $row['servico'];
-                $dia = $row['dia'];
+                $servico = $row['servico_nome'];
+                $preco_servico = $row['servico_preco'];
+                $dia = date('d/m/Y', strtotime($row['dia']));  // Formata a data para dd/mm/yyyy
                 $horario = $row['horario'];
+                $valor_total = $preco_servico;  // Sem quantidade
+
                 echo "<div class='appointment-item'>";
                 echo "<strong>Barbeiro:</strong> $barbeiro<br>";
                 echo "<strong>Serviço:</strong> $servico<br>";
-                echo "<strong>Dia:</strong> $dia<br>";
+                echo "<strong>Preço do Serviço:</strong> R$" . number_format($preco_servico, 2, ',', '.') . "<br>";
+                echo "<strong>Dia:</strong> $dia<br>";  // Exibe a data formatada como dia/mês/ano
                 echo "<strong>Horário:</strong> $horario<br>";
+                echo "<div class='total-cost'><strong>Valor Total:</strong> R$" . number_format($valor_total, 2, ',', '.') . "</div>";
                 // Botão de delete
                 echo "<form method='post' action='pedidos.php'>";
                 echo "<input type='hidden' name='agendamento_id' value='$agendamento_id'>";

@@ -30,9 +30,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cads.css">
+    <link rel="stylesheet" href="edit.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="cadastro/cads.css">
+    
 
     <title>Cadastro</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -49,7 +49,7 @@
             <i class='bx bx-left-arrow-alt'></i> Voltar
         </a>
             <div class="wrapper">
-                <h1>CADASTRO</h1>
+                <h1>Editar Usuário</h1>
                 <form action="./saveedituser.php" method="POST" onsubmit="return validarFormulario()">
                 <div class="input-columns">
                     <div class="col">
@@ -67,6 +67,8 @@
                             <input type="email" id="email" name="email" value="<?php echo $email;?>" required>
                         </div>
                     </div>
+                </div>
+                <div class="input-columns">
                     <div class="col">
                         <div class="textfield">
                             <label for="numero">Número</label>
