@@ -29,7 +29,7 @@ Bem-vindo(a) ao repositório **Barbearia**. Este projeto é um sistema completo 
 
 1. Clone este repositório para o seu ambiente local:
    ```bash
-   git clone https://github.com/seu-usuario/Barbearia.git
+   git clone https://github.com/migueljaber/Barbearia.git
 2. Configure um ambiente de servidor local (exemplo: XAMPP ou WAMP).
 3. Importe o arquivo do banco de dados para o MySQL com o nome de "**barbearia.sql**".
 
