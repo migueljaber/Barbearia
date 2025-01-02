@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/10/2024 às 10:23
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Generation Time: Jan 02, 2025 at 07:59 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `barbearia`
+-- Database: `barbearia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `agendamentos`
+-- Table structure for table `agendamentos`
 --
 
 CREATE TABLE `agendamentos` (
@@ -39,7 +39,7 @@ CREATE TABLE `agendamentos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `agendamentos`
+-- Dumping data for table `agendamentos`
 --
 
 INSERT INTO `agendamentos` (`id`, `usuario_id`, `barbeiro`, `servico_id`, `dia`, `horario`, `quantidade`, `status`) VALUES
@@ -70,7 +70,6 @@ INSERT INTO `agendamentos` (`id`, `usuario_id`, `barbeiro`, `servico_id`, `dia`,
 (44, 2, 'Jean', 5, '2024-10-30', '13:30:00', 1, 'Concluído'),
 (45, 2, 'André', 2, '2025-03-11', '14:00:00', 1, 'Concluído'),
 (46, 2, 'André', 2, '2025-03-11', '14:30:00', 1, 'Concluído'),
-(49, 2, 'Gabriel', 4, '2024-10-29', '10:30:00', 1, 'Pendente'),
 (51, 2, 'André', 4, '2024-11-23', '17:30:00', 1, 'Pendente'),
 (52, 2, 'Jean', 2, '2024-11-09', '17:00:00', 1, 'Pendente'),
 (53, 2, 'Jean', 2, '2024-11-09', '17:30:00', 1, 'Pendente'),
@@ -80,7 +79,7 @@ INSERT INTO `agendamentos` (`id`, `usuario_id`, `barbeiro`, `servico_id`, `dia`,
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `servicos`
+-- Table structure for table `servicos`
 --
 
 CREATE TABLE `servicos` (
@@ -90,7 +89,7 @@ CREATE TABLE `servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `servicos`
+-- Dumping data for table `servicos`
 --
 
 INSERT INTO `servicos` (`id`, `nome`, `preco`) VALUES
@@ -104,7 +103,7 @@ INSERT INTO `servicos` (`id`, `nome`, `preco`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -118,20 +117,20 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nivel`, `nome`, `cpf`, `email`, `numero`, `senha`) VALUES
-(1, 'adm', 'Miguel Jaber', '129.364.976-71', 'migueljabermacedo@gmail.com', '(21) 98295-7001', 'abcde'),
+(1, 'adm', 'Miguel Jaber', '648.975.189-86', 'migueljabermacedo@gmail.com', '(21) 98295-7001', 'abcde'),
 (2, 'cliente', 'Carlos Silva', '347.280.925-79', 'carlos@gmail.com', '(21) 94902-7733', 'abcde'),
 (3, 'cliente', 'Cleiton', '798.395.689-43', 'cleitonbernardo@gmail.com', '(21) 97544-4654', '1234');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `agendamentos`
+-- Indexes for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
   ADD PRIMARY KEY (`id`),
@@ -139,45 +138,45 @@ ALTER TABLE `agendamentos`
   ADD KEY `servico_id` (`servico_id`);
 
 --
--- Índices de tabela `servicos`
+-- Indexes for table `servicos`
 --
 ALTER TABLE `servicos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `agendamentos`
+-- AUTO_INCREMENT for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT de tabela `servicos`
+-- AUTO_INCREMENT for table `servicos`
 --
 ALTER TABLE `servicos`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restrições para tabelas despejadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para tabelas `agendamentos`
+-- Constraints for table `agendamentos`
 --
 ALTER TABLE `agendamentos`
   ADD CONSTRAINT `fk_servico_id` FOREIGN KEY (`servico_id`) REFERENCES `servicos` (`id`),
